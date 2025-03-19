@@ -16,7 +16,7 @@ def resize_images_in_folder(folder_path, output_folder, size=(256, 256)):
 
             try:
                 with Image.open(input_path) as img:
-                    img = img.resize(size, Image.ANTIALIAS)
+                    img = img.resize(size, Image.Resampling.LANCZOS)  # Updated resizing method
                     img.save(output_path)
                     print(f"Resized and saved: {output_path}")
             except Exception as e:
